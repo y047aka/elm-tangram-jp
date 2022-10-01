@@ -170,11 +170,11 @@ goat =
 
 samurai : Pattern
 samurai =
-    { tb1 = Target 250 -40 135
-    , tb2 = Target -220 -220 -45
-    , tm = Target 240 -310 165
-    , sqr = Target 50 50 0
-    , par = Target -530 -110 325
-    , ts1 = Target 160 230 10
-    , ts2 = Target 470 140 225
+    { tb1 = Target 300 10 135
+    , tb2 = Target -170 -170 -45
+    , tm = Target 290 -260 165
+    , sqr = Target 100 100 0
+    , par = Target -480 -60 325
+    , ts1 = Target 210 280 10
+    , ts2 = Target 520 190 225
     }
