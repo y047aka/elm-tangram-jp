@@ -8,7 +8,7 @@
   <body>
     <script src="./build/main.js"></script>
     <script>
-      Elm.Main.init({ node: document.body });
+      Elm.Main.init({ node: document.body, flags: { width: window.innerWidth, height : window.innerHeight } });
     </script>
   </body>
 </html>
