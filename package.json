@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "type": "module",
+  "name": "elm-tangram-jp",
+  "scripts": {
+    "start": "elm-watch hot",
+    "build": "elm-watch make --optimize"
+  },
+  "devDependencies": {
+    "elm-watch": "^1.0.2"
+  },
+  "dependencies": {
+    "elm": "^0.19.1-5",
+    "elm-format": "^0.8.5"
+  }
+}
