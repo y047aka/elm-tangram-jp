@@ -42,7 +42,7 @@ init window =
     { window = window
     , time = 0
     , logo = Logo.start
-    , patterns = Cycle.init japan [ goat, samurai, Logo.bird, Logo.child, Logo.house, Logo.cat, Logo.camel, Logo.logo ]
+    , patterns = Cycle.init japan [ goat, samurai, Logo.logo ]
     }
 
 
