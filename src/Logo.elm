@@ -62,7 +62,7 @@ start =
 view : List (Html.Attribute msg) -> Model -> Html.Html msg
 view attrs model =
   svg
-    (viewBox "-600 -600 1200 1200" :: attrs)
+    (viewBox "-700 -700 1400 1400" :: attrs)
     [ g [ transform "scale(1 -1)"
         ]
         [ viewShape "rgba(18, 147, 216, 1)" model.tb1 triangleBig
