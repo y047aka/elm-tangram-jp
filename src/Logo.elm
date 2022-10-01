@@ -14,6 +14,7 @@ module Logo exposing
   , house
   , cat
   , camel
+  , Target
   )
 
 

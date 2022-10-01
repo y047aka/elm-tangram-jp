@@ -8,7 +8,7 @@ import Html exposing (Attribute, Html)
 import Html.Attributes exposing (style)
 import Html.Events exposing (on, onClick)
 import Json.Decode as D
-import Logo
+import Logo exposing (Pattern, Target)
 
 
 
@@ -42,7 +42,7 @@ init window =
     { window = window
     , time = 0
     , logo = Logo.start
-    , patterns = Cycle.init Logo.heart [ Logo.bird, Logo.child, Logo.house, Logo.cat, Logo.camel, Logo.logo ]
+    , patterns = Cycle.init japan [ goat, samurai, Logo.bird, Logo.child, Logo.house, Logo.cat, Logo.camel, Logo.logo ]
     }
 
 
@@ -138,3 +138,43 @@ onMouseMove =
             (D.field "movementY" D.float)
             (D.field "currentTarget" (D.field "clientWidth" D.float))
             (D.field "currentTarget" (D.field "clientHeight" D.float))
+
+
+
+-- PATTERNS
+
+
+japan : Pattern
+japan =
+    { tb1 = Target 250 -40 135
+    , tb2 = Target -85 -290 180
+    , tm = Target -500 -220 315
+    , sqr = Target 450 330 0
+    , par = Target -200 -110 0
+    , ts1 = Target 280 -260 315
+    , ts2 = Target -380 -320 0
+    }
+
+
+goat : Pattern
+goat =
+    { tb1 = Target 250 -100 45
+    , tb2 = Target -80 -120 0
+    , tm = Target -435 130 315
+    , sqr = Target -225 85 0
+    , par = Target -350 340 135
+    , ts1 = Target -240 -290 45
+    , ts2 = Target 450 0 90
+    }
+
+
+samurai : Pattern
+samurai =
+    { tb1 = Target 250 -40 135
+    , tb2 = Target -220 -220 -45
+    , tm = Target 240 -310 165
+    , sqr = Target 50 50 0
+    , par = Target -530 -110 325
+    , ts1 = Target 160 230 10
+    , ts2 = Target 470 140 225
+    }
