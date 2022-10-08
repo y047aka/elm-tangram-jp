@@ -150,9 +150,10 @@ japan =
     , tb2 = Target -85 -290 180
     , tm = Target -500 -220 315
     , sqr = Target 450 330 0
-    , par = Target -200 -110 0
+    , par = Target -120 -110 0
     , ts1 = Target 280 -260 315
     , ts2 = Target -380 -320 0
+    , flipPar = True
     }
 
 
@@ -165,6 +166,7 @@ goat =
     , par = Target -350 340 135
     , ts1 = Target -240 -290 45
     , ts2 = Target 450 0 90
+    , flipPar = False
     }
 
 
@@ -177,4 +179,5 @@ samurai =
     , par = Target -480 -60 325
     , ts1 = Target 210 280 10
     , ts2 = Target 520 190 225
+    , flipPar = False
     }

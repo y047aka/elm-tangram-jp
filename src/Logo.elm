@@ -34,6 +34,7 @@ type alias Model =
     , par : Shape
     , ts1 : Shape
     , ts2 : Shape
+    , isParFlipped : Bool
     }
 
 
@@ -51,6 +52,7 @@ start =
     , par = Static -89 239 0
     , ts1 = Static 0 106 180
     , ts2 = Static 256 -150 270
+    , isParFlipped = False
     }
 
 
@@ -67,7 +69,12 @@ view attrs model =
             , viewShape "rgba(18, 147, 216, 1)" model.tb2 triangleBig
             , viewShape "rgba(18, 147, 216, 0.75)" model.tm triangleMedium
             , viewShape "rgba(18, 147, 216, 1)" model.sqr square
-            , viewShape "rgba(18, 147, 216, 0.75)" model.par parallelogram
+            , viewShape "rgba(18, 147, 216, 0.75)" model.par <|
+                if model.isParFlipped then
+                    parallelogramFlipped
+
+                else
+                    parallelogram
             , viewShape "rgba(18, 147, 216, 0.75)" model.ts1 triangleSmall
             , viewShape "rgba(18, 147, 216, 0.75)" model.ts2 triangleSmall
             ]
@@ -106,6 +113,7 @@ triangleMedium = "-198,-66 0,132 198,-66" --   /  \   -- 280x280x396
 triangleSmall  = "-130,-44 0,86  130,-44" --  /____\  -- 184x184260
 square         = "-130,0 0,-130 130,0 0,130"          -- 184x184
 parallelogram  = "-191,61 69,61 191,-61 -69,-61"
+parallelogramFlipped = "-69,61 191,61 69,-61 -191,-61"
 
 
 
@@ -121,6 +129,7 @@ setPattern target model =
     , par = setShape target.par model.par
     , ts1 = setShape target.ts1 model.ts1
     , ts2 = setShape target.ts2 model.ts2
+    , isParFlipped = target.flipPar
     }
 
 
@@ -151,6 +160,7 @@ step timeDelta model =
     , par = stepShape dt model.par
     , ts1 = stepShape dt model.ts1
     , ts2 = stepShape dt model.ts2
+    , isParFlipped = model.isParFlipped
     }
 
 
@@ -275,6 +285,7 @@ perturb timeDelta x y dx dy model =
         , par = perturbShape dt x y dx dy model.par
         , ts1 = perturbShape dt x y dx dy model.ts1
         , ts2 = perturbShape dt x y dx dy model.ts2
+        , isParFlipped = model.isParFlipped
         }
 
 
@@ -357,6 +368,7 @@ type alias Pattern =
     , par : Target
     , ts1 : Target
     , ts2 : Target
+    , flipPar : Bool
     }
 
 
@@ -376,6 +388,7 @@ logo =
     , par = Target -89 239 0
     , ts1 = Target 0 106 180
     , ts2 = Target 256 -150 270
+    , flipPar = False
     }
 
 
@@ -388,6 +401,7 @@ heart =
     , par = Target 231 91 0
     , ts1 = Target 150 224 0
     , ts2 = Target -106 -150 90
+    , flipPar = False
     }
 
 
@@ -400,6 +414,7 @@ bird =
     , par = Target -138 -424 135
     , ts1 = Target 139 -181 315
     , ts2 = Target 352 214 225
+    , flipPar = False
     }
 
 
@@ -412,6 +427,7 @@ child =
     , par = Target -140 -300 315
     , ts1 = Target -404 -380 315
     , ts2 = Target 328 -434 180
+    , flipPar = False
     }
 
 
@@ -424,6 +440,7 @@ house =
     , par = Target -212 56 315
     , ts1 = Target 162 -104 180
     , ts2 = Target 264 -206 270
+    , flipPar = False
     }
 
 
@@ -436,6 +453,7 @@ cat =
     , par = Target 350 -462 315
     , ts1 = Target -320 428 90
     , ts2 = Target -120 428 270
+    , flipPar = False
     }
 
 
@@ -448,4 +466,5 @@ camel =
     , par = Target 278 40 90
     , ts1 = Target 262 276 90
     , ts2 = Target 366 380 180
+    , flipPar = False
     }
